@@ -1,8 +1,9 @@
-package org.example;
+package org.leakproof;
 
+import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -19,6 +20,11 @@ public class FileAnalyzer {
         securityLeaks.put("Private Key", Pattern.compile("-----BEGIN (RSA|EC|DSA|OPENSSH) PRIVATE KEY-----"));
 
         // You can add as many rules here as you want later!
+    }
+
+    public List<ScanResult> scanFile(File file){
+        List<ScanResult> results = new ArrayList<>();
+        int lineNumber = 1;
     }
 
 }

@@ -1,4 +1,4 @@
-package org.example;
+package org.leakproof;
 
 public class ReportGenerator {
 }
