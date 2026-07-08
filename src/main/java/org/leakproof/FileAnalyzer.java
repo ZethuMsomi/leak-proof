@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class FileAnalyzer {
 
-    private static final Map<String,Pattern> securityLeaks = new HashMap<>();
+    private static final Map<String, Pattern> securityLeaks = new HashMap<>();
 
     static {
         // Leak 1: AWS Access Key ID (starts with AKIA followed by 16 characters)
@@ -22,9 +22,11 @@ public class FileAnalyzer {
         // You can add as many rules here as you want later!
     }
 
-    public List<ScanResult> scanFile(File file){
+    public List<ScanResult> scanFile(File file) {
         List<ScanResult> results = new ArrayList<>();
         int lineNumber = 1;
+        return results;
     }
+
 
 }
