@@ -9,7 +9,7 @@ public class Scanner {
     private FileAnalyzer fileAnalyzer;
     private List<ScanResult> allResults;
 
-    public Scanner(FileAnalyzer fileAnalyzer) {
+    public Scanner() {
         this.fileAnalyzer = new FileAnalyzer();
         this.allResults = new ArrayList<>();
     }
@@ -43,9 +43,9 @@ public class Scanner {
         for(File file : allFiles){
             if(file.isDirectory()){
                 traverseDirectory(file);
-            }
-
-            if(file.isFile()){
+            } else if (file.isFile()) {
+                List<ScanResult> fileResults = fileAnalyzer.scanFile(file);
+                allResults.addAll(fileResults);
 
             }
         }
