@@ -33,13 +33,10 @@ public class Scanner {
     }
 
     public void traverseDirectory(File directory){
-        // TODO: Step 3 - Get array of files using directory.listFiles()
         File[] allFiles = directory.listFiles();
-        // TODO: Step 3 - If the array is null, return early
         if(allFiles == null){
             return;
         }
-        // TODO: Step 4 - Loop through the array
         for(File file : allFiles){
             if(file.isDirectory()){
                 traverseDirectory(file);
@@ -49,8 +46,6 @@ public class Scanner {
 
             }
         }
-        // TODO: Step 4 - If it's a directory, call traverseDirectory again
-        // TODO: Step 4 - If it's a file, pass it to fileAnalyzer.scanFile() and addAll() to allResults
     }
 
 }
