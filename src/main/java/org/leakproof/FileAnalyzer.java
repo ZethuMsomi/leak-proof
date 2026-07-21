@@ -20,7 +20,15 @@ public class FileAnalyzer {
         // Leak 2: Asymmetric Private Keys (Catches RSA, EC, DSA, or OPENSSH keys)
         securityLeaks.put("Private Key", Pattern.compile("-----BEGIN (RSA|EC|DSA|OPENSSH) PRIVATE KEY-----"));
 
-        // You can add as many rules here as you want later!
+        // Leak 3: AWS Secrets Manager ARN (starts with arn:aws:secretsmanager: followed by region, a 12-digit ID, and the secret name)
+        securityLeaks.put("AWS Secrets Manager ARN", Pattern.compile("arn:aws:secretsmanager:[a-z0-9-]+:\\d{12}:secret:[a-zA-Z0-9/_+=.@-]+"));
+
+        // Leak 4: Slack Bot Token (starts with xoxb- followed by two blocks of 10-13 digits and 24 alphanumeric characters)
+        securityLeaks.put("Slack Token", Pattern.compile("xoxb-[0-9]{10,13}-[0-9]{10,13}-[a-zA-Z0-9]{24}"));
+
+        // Leak 5: Google Cloud API Key (starts with AIza followed by 35 alphanumeric characters, dashes, or underscores)
+        securityLeaks.put("GCP API Key", Pattern.compile("AIza[0-9A-Za-z\\-_]{35}"));
+
     }
 
     public List<ScanResult> scanFile(File file){
