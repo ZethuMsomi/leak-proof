@@ -4,12 +4,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Scanner {
+public class ProjectScanner {
 
     private FileAnalyzer fileAnalyzer;
     private List<ScanResult> allResults;
 
-    public Scanner() {
+    public ProjectScanner() {
         this.fileAnalyzer = new FileAnalyzer();
         this.allResults = new ArrayList<>();
     }

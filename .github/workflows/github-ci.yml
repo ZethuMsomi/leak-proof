@@ -1,0 +1,30 @@
+name: build_pipeline
+
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: get repository
+        uses: actions/checkout@v7
+
+      - name: set up java
+        uses: actions/setup-java@v6.0.0
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: compile
+        run: mvn compile
+
+      - name: test
+        run: mvn test
+
+      - name: package
+        run: mvn package

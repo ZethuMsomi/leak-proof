@@ -19,7 +19,7 @@ public class Main {
         System.out.println("Scanning in progress...\n");
 
         // Step 3: Boot Up the Engine
-        Scanner scanner = new Scanner();
+        ProjectScanner scanner = new ProjectScanner();
         ReportGenerator reporter = new ReportGenerator();
 
         // Step 4: Execute the Scan
