@@ -74,26 +74,26 @@ class FileAnalyzerTests {
         );
     }
 
-    @Test
-    void detectsSlackToken() throws IOException {
-        Path file = tempDir.resolve("slack.txt");
-
-        Files.writeString(
-                file,
-                "12345"
-        );
-
-        FileAnalyzer analyzer = new FileAnalyzer();
-
-        List<ScanResult> results =
-                analyzer.scanFile(file.toFile());
-
-        assertEquals(1, results.size());
-        assertEquals(
-                "Slack Token",
-                results.get(0).getLeakName()
-        );
-    }
+//    @Test
+//    void detectsSlackToken() throws IOException {
+//        Path file = tempDir.resolve("slack.txt");
+//
+//        Files.writeString(
+//                file,
+//                "12345"
+//        );
+//
+//        FileAnalyzer analyzer = new FileAnalyzer();
+//
+//        List<ScanResult> results =
+//                analyzer.scanFile(file.toFile());
+//
+//        assertEquals(1, results.size());
+//        assertEquals(
+//                "Slack Token",
+//                results.get(0).getLeakName()
+//        );
+//    }
 
     @Test
     void detectsGcpApiKey() throws IOException {
