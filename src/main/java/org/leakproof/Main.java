@@ -1,6 +1,7 @@
 package org.leakproof;
 
 import java.util.List;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -12,18 +13,24 @@ public class Main {
         // Example for Mac/Linux: "/Users/YourName/Desktop/TestFolder"
 
         // Using "./" means it will scan the current folder your project is in by default.
-        String targetDirectory = "C:\\Users\\uzeth\\test-leak";
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to Leak-Proof!");
+        System.out.println("Input File Path: ");
+        String inputPath = scanner.nextLine();
+
+//// "C:\\Users\\uzeth\\test-leak"
+//        String targetDirectory = inputPath;
 
         System.out.println("Starting Leak-Proof Scanner...");
-        System.out.println("Target Directory: " + targetDirectory);
+        System.out.println("Target Directory: " + inputPath);
         System.out.println("Scanning in progress...\n");
 
         // Step 3: Boot Up the Engine
-        ProjectScanner scanner = new ProjectScanner();
+        ProjectScanner projectScanner = new ProjectScanner();
         ReportGenerator reporter = new ReportGenerator();
 
         // Step 4: Execute the Scan
-        List<ScanResult> findings = scanner.startScan(targetDirectory);
+        List<ScanResult> findings = projectScanner.startScan(inputPath);
 
         // Step 5: Print the Report
         reporter.generateReport(findings);
