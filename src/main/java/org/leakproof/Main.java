@@ -1,16 +1,15 @@
 package org.leakproof;
-
+import org.leakproof.data.DataTransformer;
+import org.leakproof.data.DatabaseManager;
+import org.leakproof.data.FindingRecord;
+import org.leakproof.data.FindingRepository;
 import java.util.List;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        // Step 2: Choose a Target Directory
+        // Choose a Target Directory
         // Replace this path with a real folder on your computer to test!
-        // Example for Windows: "C:\\Users\\YourName\\Desktop\\TestFolder"
-        // Example for Mac/Linux: "/Users/YourName/Desktop/TestFolder"
 
         // Using "./" means it will scan the current folder your project is in by default.
         Scanner scanner = new Scanner(System.in);
@@ -25,14 +24,26 @@ public class Main {
         System.out.println("Target Directory: " + inputPath);
         System.out.println("Scanning in progress...\n");
 
-        // Step 3: Boot Up the Engine
+        // Boot Up the Engine
         ProjectScanner projectScanner = new ProjectScanner();
         ReportGenerator reporter = new ReportGenerator();
 
-        // Step 4: Execute the Scan
+        DatabaseManager databaseManager = new DatabaseManager();
+        databaseManager.createTable();
+
+        // EXTRACT:
         List<ScanResult> findings = projectScanner.startScan(inputPath);
 
-        // Step 5: Print the Report
+        // TRANSFORM:
+        DataTransformer transformer = new DataTransformer(findings);
+        List<FindingRecord> records = transformer.transform();
+
+        // LOAD:
+        FindingRepository repository = new FindingRepository(databaseManager.getConnection());
+
+        repository.save(records);
+
+        // Print the Report:
         reporter.generateReport(findings);
     }
 }

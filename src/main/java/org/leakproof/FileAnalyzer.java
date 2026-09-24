@@ -15,7 +15,7 @@ public class FileAnalyzer {
 
     static {
         // Leak 1: AWS Access Key ID (starts with AKIA followed by 16 characters)
-        securityLeaks.put("AWS Keys:", Pattern.compile("AKIA[0-9A-Z]{16}"));
+        securityLeaks.put("AWS Key", Pattern.compile("AKIA[0-9A-Z]{16}"));
 
         // Leak 2: Asymmetric Private Keys (Catches RSA, EC, DSA, or OPENSSH keys)
         securityLeaks.put("Private Key", Pattern.compile("-----BEGIN (RSA|EC|DSA|OPENSSH) PRIVATE KEY-----"));
