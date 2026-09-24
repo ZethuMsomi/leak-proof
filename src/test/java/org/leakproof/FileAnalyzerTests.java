@@ -29,7 +29,7 @@ class FileAnalyzerTests {
                 analyzer.scanFile(file.toFile());
 
         assertEquals(1, results.size());
-        assertEquals("AWS Keys:", results.get(0).getLeakName());
+        assertEquals("AWS Key", results.get(0).getLeakName());
         assertEquals(2, results.get(0).getLineNumber());
         assertEquals(file.toFile(), results.get(0).getFile());
     }
