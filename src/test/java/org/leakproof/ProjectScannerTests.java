@@ -38,7 +38,7 @@ public class ProjectScannerTests {
 
         assertEquals(1, results.size());
         assertEquals(
-                "AWS Keys:",
+                "AWS Key",
                 results.get(0).getLeakName()
         );
         assertEquals(
