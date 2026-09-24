@@ -6,8 +6,8 @@ import java.util.List;
 
 public class DataTransformer {
 
-   public List<ScanResult> results;
-   public List<FindingRecord> records;
+   private List<ScanResult> results;
+   private List<FindingRecord> records;
 
    public DataTransformer(List<ScanResult> results){
        this.results = results;
