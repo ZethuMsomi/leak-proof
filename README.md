@@ -1,6 +1,7 @@
 # 🔐 Leak-Proof
 Verification Code:
 WTC-FC8QU3P9
+WTC-BF9UA9KV
 
 > **A Java-based cybersecurity scanner that detects exposed secrets and processes security findings through an ETL data pipeline.**
 
