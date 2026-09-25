@@ -2,6 +2,10 @@ package org.leakproof;
 
 import java.util.List;
 
+/**
+ * Generates a report from the security leaks detected during a scan.
+ */
+
 public class ReportGenerator {
 
     public void generateReport(List<ScanResult> results){

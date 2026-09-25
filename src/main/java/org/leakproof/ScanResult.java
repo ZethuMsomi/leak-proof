@@ -2,6 +2,10 @@ package org.leakproof;
 
 import java.io.File;
 
+/**
+ * Stores information about a detected security leak, including the file,
+ * line number, and type of leak.
+ */
 public class ScanResult {
 
     private File file;

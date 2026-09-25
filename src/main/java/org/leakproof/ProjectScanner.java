@@ -4,6 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Scans a target directory and its files for potential security leaks.
+ */
+
 public class ProjectScanner {
 
     private FileAnalyzer fileAnalyzer;

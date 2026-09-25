@@ -8,7 +8,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * Analyzes file contents and checks for patterns that match sensitive information.
+ */
 public class FileAnalyzer {
 
     private static final Map<String, Pattern> securityLeaks = new HashMap<>();

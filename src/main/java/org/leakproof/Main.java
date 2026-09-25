@@ -8,10 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Choose a Target Directory
-        // Replace this path with a real folder on your computer to test!
 
-        // Using "./" means it will scan the current folder your project is in by default.
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Leak-Proof!");
         System.out.println("Input File Path: ");
